@@ -4,7 +4,7 @@ import { useState, useEffect, Fragment } from "react";
 import { useSelector } from "react-redux";
 import {
   selectCategoriesMap,
-  selectCategoriesIsLoading,
+  selectIsLoading,
 } from "../../store/categories/category.selector.js";
 
 import ProductCard from "../../components/product-card/product-card.component";
@@ -14,7 +14,7 @@ const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setProducts] = useState(categoriesMap[category]);
-  const isLoading = useSelector(selectCategoriesIsLoading);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
